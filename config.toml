@@ -1,0 +1,32 @@
+languageCode = "en-gb"
+title = "Mario's Tech Blog"
+baseurl = "https://www.schnuddelhuddel.de/"
+#contentdir = "content"
+#publishdir = "public"
+#builddrafts = false
+#baseurl = "http://fredrikloch.me/"
+canonifyurls = true
+#title = "Fredrik Loch"
+author = "Mario Martelli"
+copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
+
+
+[indexes]
+   category = "categories"
+   tag = "tags"
+[Params]
+  AuthorName = "Mario"
+  github = "mgmart"
+  # bitbucket = "floch"
+  # flickr = "senjin"
+  twitter = "schnuddelhuddel"
+  reddit = "mgmart"
+  email = "mail@schnuddelhuddel.de"
+  description = "Dis is a tech blog. "
+  cv = "/pages/cv"
+  legalnotice = "/pages/legal-notice"
+  muut = "fredrikloch"
+  xing = "Mario_Martelli"
+  cover = "/images/background-cover.jpg"
+  logo = "/img/logo-1.jpg"
+
