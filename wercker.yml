@@ -2,18 +2,15 @@
 box: debian
 build: 
   steps: 
-    - 
-      arjen/hugo-build: 
+    - arjen/hugo-build: 
         flags: "--buildDrafts=false"
         theme: hugo-uno
         version: "0.18.1"
 deploy: 
   steps: 
-    - 
-      install-packages: 
+    - install-packages: 
         packages: "git ssh-client"
-    - 
-      lukevivier/gh-pages: 
+    - lukevivier/gh-pages@0.2.1: 
         basedir: public
         domain: schnuddelhuddel.de
         token: $GIT_TOKEN
