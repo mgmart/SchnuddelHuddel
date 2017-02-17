@@ -5,15 +5,19 @@ baseurl = "http://www.pragmatic-configuration.de"
 #publishdir = "public"
 #builddrafts = false
 #baseurl = "http://fredrikloch.me/"
-canonifyurls = true
+# canonifyurls = true
 #title = "Fredrik Loch"
 author = "Mario Martelli"
 copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
-theme = "hugo-uno"
+theme = "hpstr"
 
-[indexes]
-   category = "categories"
-   tag = "tags"
+[[links]]
+title = "Imprint"
+url = "/legal-notice/"
+
+#[indexes]
+#   category = "categories"
+#   tag = "tags"
 [Params]
   AuthorName = "Mario"
   github = "mgmart"
