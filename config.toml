@@ -9,7 +9,7 @@ canonifyurls = true
 #title = "Fredrik Loch"
 author = "Mario Martelli"
 copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
-
+theme = "hugo-uno"
 
 [indexes]
    category = "categories"
@@ -28,5 +28,5 @@ copyright = "This work is licensed under a Creative Commons Attribution-ShareAli
   muut = "fredrikloch"
   xing = "Mario_Martelli"
   cover = "/images/background-cover.jpg"
-  logo = "/img/logo-1.jpg"
+  logo = "/logo/Avatar.png"
 
