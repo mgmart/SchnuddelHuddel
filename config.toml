@@ -48,6 +48,11 @@ disable_widgets = true
     link   = "/"
 
 [[params.menu]]
+    before = true
+    label  = "About"
+    link   = "about/"
+
+[[params.menu]]
     before = false
     label  = "Tags"
     link   = "tags/"
