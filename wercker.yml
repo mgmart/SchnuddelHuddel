@@ -4,7 +4,7 @@ build:
   steps: 
     - arjen/hugo-build: 
         flags: "--buildDrafts=false"
-        theme: hugo-uno
+        theme: hugo-icarus-theme
         version: "0.18.1"
 deploy: 
   steps: 
