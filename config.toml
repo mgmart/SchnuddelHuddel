@@ -1,5 +1,6 @@
 baseurl = "http://www.schnuddelhuddel.de"
 languageCode = "en-gb"
+
 enableEmoji = true
 enableGitMode = true
 enableRobotsTXT = true
