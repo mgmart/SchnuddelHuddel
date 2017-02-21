@@ -11,7 +11,7 @@ pluralizelisttitles = false
 PygmentsCodeFences = true
 pygmentsStyle = "monokai"
 Paginate = 5
-# disqusShortname = "hpstrhugo"
+disqusShortname = "pragmatic-1"
 
 disable_widgets = true
 
