@@ -6,11 +6,12 @@ description = "How and why I switched to hugo"
 categories = ["tools"]
 banner = "images/hugo-logo.png"
 draft = false
+url = "/switching-from-wordpress-to-hugo/"
 +++
 
 I used Wordpress for about 10 years. In those ten years I produced 72
 posts. Most of these posts were
-about [audaxes](https://en.wikipedia.org/wiki/Audax_(cycling)) or travels I
+about [audaxes](https://en.wikipedia.org/wiki/Randonneuring) or travels I
 made. During the travels I made my posts with the Wordpress iOS client
 application. Which was sometimes a hassle because pictures weren't uploaded
 reliably and I ended up with missing pictures in my posts.
