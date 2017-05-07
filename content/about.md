@@ -15,5 +15,6 @@ commonly used in the tech world. As you will easily see, it is not my
 native tongue. If you encounter any mistakes, please let me know either by
 comment or send me a message.
 
-
+My other blog which is in German and mainly about long distance cycling could be
+found [here](https://www.martelli.de)
 
