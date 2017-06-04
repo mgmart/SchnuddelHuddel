@@ -2,11 +2,11 @@
 title = "Imprint"
 date = "2017-02-17"
 author = "mgm"
-url = "/legal-notice/"
-type = "page"
+url = "/imprint/"
 background = "/images/giftly.png"
 [blackfriday]
 extensions = ["hardLineBreak"]
+
 +++
 
 # Legal Disclosure #

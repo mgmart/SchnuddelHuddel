@@ -1,6 +1,6 @@
 # Icarus
 
-Icarus is a responsive and customizable theme for bloggers. It's a port of the same-named theme for [Hexo](//hexo.io) made by [Ruipeng Zhang](https://github.com/ppoffice). Noteworthy features of this Hugo theme are the integration of a comment-system powered by Disqus, localization (l10n) support, syntax highlighting for source code, optional widgets for the sidebar and a handful [shortcodes](http://gohugo.io/extras/shortcodes/) to make your life easier.
+Icarus is a responsive and customizable theme for bloggers. It's a port of the same-named theme for [Hexo](//hexo.io) made by [Ruipeng Zhang](https://github.com/ppoffice). Noteworthy features of this Hugo theme are the integration of a comment-system powered by Disqus, localization (l10n) support, syntax highlighting for source code and optional widgets for the sidebar.
 
 ![](https://raw.githubusercontent.com/digitalcraftsman/hugo-icarus-theme/master/images/screenshot.png)
 
@@ -16,25 +16,11 @@ You should see a folder called `hugo-icarus-theme` inside the `themes` directory
 
 ## Setup
 
-In the next step navigate to the `exampleSite` folder at `themes/hugo-icarus-theme/exampleSite/`. Its structure should look similar to this:
+Next, navigate to the `exampleSite` folder at `themes/hugo-type-theme/exampleSite/`.  In order to get your site running, you need to copy `config.toml` and all the content of all relevant subfolders such as `data/l10n.toml` into the root folders.
 
-    exampleSite
-    ├── config.toml
-    ├── content
-    │   └── post
-    │       ├── creating-a-new-theme.md
-    │       ├── go-is-for-lovers.md
-    │       ├── hugo-is-for-lovers.md
-    │       ├── introducing-icarus-and-its-features.md
-    │       ├── linked-post.md
-    │       └── migrate-from-jekyll.md
-    ├── data
-    │   └── l10n.toml
-    └── static
-        └── banners
-            └── placeholder.png
+To turn the `exampleSite` folder in a standalone demo site the `themesDir` property has been set to `../..`. This way you can preview this theme by running `hugo server` inside `exampleSite` folder.
 
-In order to get your site running, you need to copy `config.toml` and `data/l10n.toml` into the root folders.
+**Due to the customized `themesDir` path Hugo will fail to find themes if you copied the `config.toml` into the root directory of a regular Hugo website.** Make sure you comment out the `themesDir` property if you use the theme in production.
 
 
 ## The config file
@@ -139,13 +125,10 @@ You can also print formulas inline. In this case wrap the formula only once with
 
 If you don't need equations, you can disable MathJax but putting `disable_mathjax = true` in your config.toml. This will prevent clients from unnecessarily downloading the MathJax library.
 
-## Shortcodes
 
-Last but not least I included some useful [shortcodes](http://gohugo.io/extras/shortcodes/) to make your life easier.
+### Gallery shortcode
 
-### Gallery
-
-This way you can include a gallery into your post. Copy the code below into your content file and enter the relative paths to your images.
+This shortcode you to easily include a gallery into your pages. Copy the code below into your content file and enter the relative paths to your images.
 
     {{< gallery
         "/banners/placeholder.png"
@@ -153,15 +136,6 @@ This way you can include a gallery into your post. Copy the code below into your
         "/banners/placeholder.png"
     >}}
 
-### JSFiddle
-
-It works the same with JSFiddle examples you want to showcase. The parameter `id` consists of the username and id of the example.
-
-    {{< jsfiddle id="zalun/NmudS" >}}
-
-As descibed in the [docs of JSFiddle](http://doc.jsfiddle.net/use/embedding.html), you can define which tabs will be shown. Enter the tabs you want to see separated by a comma in the `tabs` parameter.
-
-    {{< jsfiddle id="zalun/NmudS" tabs="html,result" >}}
 
 ## Nearly finished
 

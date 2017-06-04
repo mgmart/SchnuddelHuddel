@@ -1,9 +1,12 @@
-#+DATE: 2017-06-03T18:44:38+02:00
-#+TITLE: Creating new Org Files for Hugo
-#+URL: /creating-new-org-files-for-hugo/
+
+
 #+BANNER: images/blue-unicorn.png
-#+CATEGORIES: 
-#+TAGS:
+#+DATE: 2017-06-03T18:44:38+02:00
+#+CATEGORIES: emacs
+#+TITLE: Creating new Org Files for Hugo
+#+TAGS: hugo
+#+URL: creating-new-org-files-for-hugo
+
 
 As the command `hugo new` does not work for org files I'm using emacs for that
 task.

@@ -10,10 +10,21 @@ theme = "hugo-icarus-theme"
 pluralizelisttitles = false
 PygmentsCodeFences = true
 pygmentsStyle = "monokai"
-Paginate = 5
+paginate = 10
+footnotereturnlinkcontents = "↩"
+
 disqusShortname = "pragmatic-1"
 
-disable_widgets = true
+# disable_widgets = true
+
+# define which types of pages should be shown. By default the type with the most regular pages
+mainSections = ["post","posts"]
+
+[blackfriday]
+   extensions = ["hardLineBreak"]
+   plainIDAnchors = true
+   hrefTargetBlank = true
+
 
 [permalinks]
     post = "/:year/:month/:day/:slug"

@@ -1,11 +1,11 @@
 +++
-layout = "page"
 title = "About"
 description = "Because every blog needs an about page"
 tags = []
 date = "2017-01-16T10:27:25+01:00"
 author = "mgmart"
-comments = false
+comments = "false"
+permalink = "/about.html"
 +++
 
 
