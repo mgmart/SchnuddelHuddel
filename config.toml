@@ -21,10 +21,8 @@ disqusShortname = "pragmatic-1"
 mainSections = ["post","posts"]
 
 [blackfriday]
-   extensions = ["hardLineBreak"]
    plainIDAnchors = true
    hrefTargetBlank = true
-
 
 [permalinks]
     post = "/:year/:month/:day/:slug"
