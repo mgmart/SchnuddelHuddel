@@ -51,30 +51,24 @@ mainSections = ["post","posts"]
 #
 # E.g.: "Home" appears before all linked posts in the menu
 # and "Tags" / "Categories" after them.
-[[params.menu]]
-    before = true
-    label  = "Start"
-    link   = "/"
 
 [[params.menu]]
     before = true
     label  = "About"
     link   = "about/"
+    icon   = "info"
 
 [[params.menu]]
     before = false
     label  = "Tags"
     link   = "tags/"
-
-[[params.menu]]
-    before = false
-    label  = "Categories"
-    link   = "categories/"
+    icon   = "tags"
 
 [[params.menu]]
     before = false
     label  = "Cycling"
     link   = "https://www.martelli.de"
+    icon   = "bicycle"
 
 # Enter a link for the follow button on the left
 [params.profile]

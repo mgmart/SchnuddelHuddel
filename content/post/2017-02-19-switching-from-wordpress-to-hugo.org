@@ -2,7 +2,7 @@
 #+BANNER: images/hugo-logo.png
 #+DATE: 2017-02-19T16:55:28+01:00
 #+TITLE: Switching from Wordpress to Hugo
-#+TAGS: hugo,wordpress
+#+TAGS: hugo wordpress
 #+CATEGORIES: tools
 #+URL: /switching-from-wordpress-to-hugo/
 
