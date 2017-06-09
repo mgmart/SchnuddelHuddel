@@ -13,8 +13,9 @@ sometimes a hassle because pictures weren't uploaded reliably and I ended up
 with missing pictures in my posts.
 
 Also the amount of vulnerabilities either in php or in Wordpress
-increased. Those weren't patched as frequently as I' liked. And furthermore the
-load of attacks specially on Wordpress components increased over the time.
+increased. Those weren't patched as frequently as I would have liked. And
+furthermore the load of attacks specially on Wordpress components increased over
+the time.
 
 This post is not a cookbook, there are enough out there for the different parts
 needed. It's more a report with links to the pages which helped me during the
