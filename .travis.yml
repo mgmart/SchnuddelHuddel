@@ -12,6 +12,7 @@ install:
 
 # Build the website
 script:
+  - pygmentize -V
   - git submodule update --init --recursive
   - hugo -v
 
