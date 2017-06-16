@@ -1,11 +1,17 @@
 # Install the apt prerequisites
-addons:
-  apt:
-    packages:
-      - python-pygments
+# addons:
+#   apt:
+#     packages:
+#       - python-pygments
+
+# needed for pygments install
+sudo: required
+python:
+  - "2.7"
 
 # Clean and don't fail
 install:
+  - sudo pip install pygments
   - wget -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.22.1/hugo_0.22.1_Linux-64bit.deb
   - sudo dpkg -i /tmp/hugo.deb
   - rm -rf public || exit 0
