@@ -9,7 +9,8 @@ title = "Pragmatic"
 theme = "hugo-icarus-theme"
 pluralizelisttitles = false
 PygmentsCodeFences = true
-pygmentsStyle = "monokai"
+# pygmentsStyle = "monokai"
+pygmentsStyle = "manni"
 paginate = 10
 footnotereturnlinkcontents = "↩"
 

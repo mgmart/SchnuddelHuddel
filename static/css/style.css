@@ -132,7 +132,7 @@ code {
   margin: 0 2px;
   color: #e96900;
   padding: 3px 5px;
-  font-size: 0.8em;
+  font-size: 1em;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
@@ -2100,7 +2100,7 @@ ol.toc {
   height: 1.6em;
 }
 .highlight {
-  color: #ddd;
+  color: #333;
   background: #272822;
 }
 .highlight .code .tag,
