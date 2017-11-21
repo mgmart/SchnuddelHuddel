@@ -1,0 +1,95 @@
+#+DATE: 2017-11-19T15:44:08+01:00
+#+TITLE: Posting Apple Watch Trainings to Strava
+#+URL: /posting-apple-watch-trainings-to-strava/
+#+BANNER: 
+#+CATEGORIES: Integration
+#+TAGS: WatchOS Strava git
+#+DRAFT: true
+
+Until the latest release to Apple Watch seemed not to be useful to me. But with
+Apple Watch Series 3 and WatchOS4 several things are fixed. There is no need
+anymore to carry the phone during exercise and it's possible to access all
+training data by HealthKit.
+
+The battery should last for the usual run or short ride. I expect the watch to
+last at least for a 10h ride. 
+
+** My current workflow
+
+   I use Garmin devices to track my runs and rides and Rubitrack to manage and
+   analyse the data. The Garmin devices do upload the data Garmin Connect
+   automagically, but the sync from Garmin Connect to Rubitrack was not stable
+   for a long time. Therefore I linked Garmin Connect to Strava. This gave me
+   not only a stable sync (Rubitrack <-> Strava) but also access to a huge
+   cycling community.
+
+   
+** Apple Watch
+
+   The Apple Watch has a built-in Heart rate monitor. Leaving the chest-strap at
+   home for training and commuting makes preparation a lot easier. Also there is
+   no need to mount/demount the Edge unit on the bicycle for commuting. The only
+   flaw at the moment is that it is not possible to connect the watch to a
+   cadence sensor. So, for serious cycling-exercises I have to switch back to my
+   old set-up.
+
+** WatchOS 4
+
+   With WatchOS 4 HealthKit allows access to the workout-route. What would be
+   nicer than read the workout (including heart rate data and the route taken)
+   and write it to Strava. 
+
+** Initial Approach
+
+   My initial approach was to write an app for the phone which reads the
+   selected workouts and write the selected data to Strava. While gathering
+   information how to do this I stumbled upon an app which was already able to
+   write workouts into GPXfiles. I decided to use this app and built a bit of
+   logic around it.
+
+** Final approach
+
+   I now use GPXExporter to write the workouts as GPX files to a local git
+   repository on my iPhone. On my server I installed a post-receive hook which
+   posts the workouts to strava by using stravacli.
+
+#+BEGIN_EXAMPLE 
+#!/bin/sh
+
+GIT_REPO=/opt/git/StravaUploads.git
+TMP_GIT_CLONE=$(mktemp -d)
+
+unset GIT_DIR
+
+git clone $GIT_REPO $TMP_GIT_CLONE
+cd $TMP_GIT_CLONE
+
+
+for f in GPXfiles/*.gpx; do
+
+if [ -e "$f" ]
+then
+
+   PYTHONIOENCODING=UTF-8 ./bin/stravaup.py -P GPXfiles/*.gpx
+
+   git mv -f GPXfiles/*.gpx processed/
+   git commit -m "Files were processed by StravaCLI"
+   git push
+   
+else
+   echo "Nothing to do"
+fi
+   
+break
+done
+
+rm -rf $TMP_GIT_CLONE
+
+#+END_EXAMPLE
+
+The ~PYTHONIOENCODING=UTF-8~ is necessary because I used the emoji expression of
+my last name in Strava.
+
+I am now able to post my workouts to Strava without the need to access my
+computer. Of course it would be nicer if Strava would allow to post workouts
+directly on the phone by providing an action extension for that.
