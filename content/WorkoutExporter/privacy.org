@@ -1,0 +1,15 @@
+#+TITLE: Workout Exporter Privacy Policy
+#+DESCRIPTION: "Because every apps needs a privacy policy"
+#+DATE: 2017-11-25T10:27:25+01:00
+#+AUTHOR: mgmart
+#+PERMALINK: /WorkoutExporter/privacy
+
+
+* Workout Exporter Privacy Policy
+
+The Workout Exporter privacy policy is extremely simple: We don't share your
+activity data with anyone at all except when you decide to do so yourself by
+sharing an activity on Facebook, dailymile, twitter, emails, sms etc.
+
+Non-identifiable usage analytics are tracked using TestFlight.
+
