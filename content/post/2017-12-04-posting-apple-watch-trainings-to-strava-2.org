@@ -1,0 +1,23 @@
+#+DATE: 2017-12-04T18:35:41+01:00
+#+TITLE: Posting Apple Watch Workouts to Strava (Ⅱ)
+#+URL: /posting-apple-watch-trainings-to-strava-2/
+#+BANNER: /images/workout-exporter.png
+#+CATEGORIES: Integration
+#+DRAFT: false
+#+TAGS: WatchOS Strava
+
+After I wrote about this topic 2 weeks ago in [[/posting-apple-watch-trainings-to-strava/][my last post]], I made a few changes
+to my setup. First of all, I made some changes to [[https://github.com/pilif/GpxExport][GPXExport]] so that it would
+better fit my needs. I collected this changes in a new repo and named it
+[[https://github.com/mgmart/WorkoutExporter][WorkoutExporter.]] The main change is that WorkoutExporter writes the GPX in a more
+readable manner[fn:1].
+
+I also remembered that I experimented in the past with [[https://tapiriik.com][tapiriik]] in the past. I
+forgot about it because I did not have a fitting use-case then. Tapiriik
+supports syncing with Dropbox. I tried it for a few days and it synced
+perfectly the workouts a wrote to a specific Dropbox folder to Strava.
+
+I think this could be a good alternative if one does not want to utilise git for
+this.
+
+[fn:1] I need this mainly for debugging reasons. I plan to do some tests where I track the same exercise with a Garmin device and the Apple Watch. 

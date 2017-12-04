@@ -1,5 +1,5 @@
 #+DATE: 2017-11-19T15:44:08+01:00
-#+TITLE: Posting Apple Watch Trainings to Strava
+#+TITLE: Posting Apple Watch Workouts to Strava
 #+URL: /posting-apple-watch-trainings-to-strava/
 #+BANNER: /images/gears.png
 #+CATEGORIES: Integration
@@ -95,3 +95,4 @@ computer. Of course it would be nicer if Strava would allow to post workouts
 directly on the phone by providing an action extension for that.
 
 [fn:1] It's vital for me to be able to do that locally without network access. 
+
