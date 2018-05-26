@@ -14,7 +14,7 @@ pygmentsStyle = "manni"
 paginate = 10
 footnotereturnlinkcontents = "↩"
 
-disqusShortname = "pragmatic-1"
+# disqusShortname = "pragmatic-1"
 
 # disable_widgets = true
 
