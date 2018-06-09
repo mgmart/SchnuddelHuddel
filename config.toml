@@ -1,4 +1,4 @@
-baseurl = "https://www.schnuddelhuddel.de"
+baseurl = "https://schnuddelhuddel.de"
 languageCode = "en-gb"
 
 enableEmoji = true
