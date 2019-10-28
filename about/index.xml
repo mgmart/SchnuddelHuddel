@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Pragmatic</title>
+    <link>https://schnuddelhuddel.de/about/</link>
+    <description>Recent content in About on Pragmatic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>Mario Martelli --  [Imprint](/imprint) </copyright>
+    <lastBuildDate>Mon, 16 Jan 2017 10:27:25 +0100</lastBuildDate>
+    
+	<atom:link href="https://schnuddelhuddel.de/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

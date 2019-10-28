@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Pragmatic</title>
+    <link>https://schnuddelhuddel.de/tags/git/</link>
+    <description>Recent content in Git on Pragmatic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>Mario Martelli --  [Imprint](/imprint) </copyright>
+    <lastBuildDate>Sun, 19 Nov 2017 15:44:08 +0100</lastBuildDate>
+    
+	<atom:link href="https://schnuddelhuddel.de/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Posting Apple Watch Workouts to Strava</title>
+      <link>https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava/</link>
+      <pubDate>Sun, 19 Nov 2017 15:44:08 +0100</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava/</guid>
+      <description>Until the latest release to Apple Watch seemed not to be useful to me. But with Apple Watch Series 3 and WatchOS4 several things are fixed. There is no need anymore to carry the phone during exercise and it&#39;s possible to access all training data by HealthKit.
+The battery should last for the usual run or short ride. I expect the watch to last at least for a 10h ride.</description>
+    </item>
+    
+  </channel>
+</rss>

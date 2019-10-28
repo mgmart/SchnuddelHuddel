@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on Pragmatic</title>
+    <link>https://schnuddelhuddel.de/categories/tools/</link>
+    <description>Recent content in Tools on Pragmatic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>Mario Martelli --  [Imprint](/imprint) </copyright>
+    <lastBuildDate>Sun, 19 Feb 2017 16:55:28 +0100</lastBuildDate>
+    
+	<atom:link href="https://schnuddelhuddel.de/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Switching from Wordpress to Hugo</title>
+      <link>https://schnuddelhuddel.de/switching-from-wordpress-to-hugo/</link>
+      <pubDate>Sun, 19 Feb 2017 16:55:28 +0100</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/switching-from-wordpress-to-hugo/</guid>
+      <description>I used Wordpress for about 10 years. In those ten years I produced 72 posts. Most of these posts were about audaxes or travels I made. During the travels I made my posts with the Wordpress iOS client application. Which was sometimes a hassle because pictures weren&#39;t uploaded reliably and I ended up with missing pictures in my posts.
+Also the amount of vulnerabilities either in php or in Wordpress increased.</description>
+    </item>
+    
+  </channel>
+</rss>
