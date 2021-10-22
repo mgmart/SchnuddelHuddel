@@ -1,9 +1,9 @@
 #+DATE: 2017-12-04T18:35:41+01:00
 #+TITLE: Control emacs from your mobile
 #+URL: /emacs-engine-problem-statement/
-#+BANNER: /images/emacs-ffm.png
+#+BANNER: /images/emacs-ffm.jpeg
 #+CATEGORIES: emacs
-#+DRAFT: true
+#+DRAFT: false
 #+TAGS: emacs org-mode
 
 This week I participated at the [[https://www.meetup.com/de-DE/emacs-ffm/][emacs FFM Meetup]] where we talked about the idea
@@ -16,16 +16,15 @@ I would like to control everything I do in emacs from my mobile while I'm
 on-the-go - not only org-mode related things.
 
 On the emacs side one could utilise org-protocol which can be extended with
-additional protocol-handlers and despite the name is can also be used for things
+additional protocol-handlers and despite the name it can also be used for things
 beside org-mode.
 
 [[file:org-prot.png][usage of org-protocol]]
 
-The protocol could be fairly simple and the command could be reduced to: ~mode~
-which is the sub-protocol, ~action~ and ~data~.
+The protocol could be fairly simple and the command could be reduced to: ~mode~ which is the sub-protocol, ~action~ and ~data~.
 
 Some examples (not url-encoded for better readability):
-#+begin_example 
+#+begin_example shell
 org-protocol://sub-protocol?key=val&key2=val2
 org-protocol://ledger?action=add&data=value:5,00€;account1:cash;account2:snacks;payee:Not Starbucks;comments:fine coffee
 org-protocol://cal?action=list&data=from:today;for:1week
@@ -41,7 +40,6 @@ The middleware-component which is here called ~emacs-engine~ could be e.g.
 
 So it would be possible to integrate ~emacs-engine~ into workflows implemented by Apple Shortcuts.
 
-[fn:1] Therefore the communication channel used by the user must provide a
-backcannel
+[fn:1] Therefore the communication channel used by the user must provide a backchannel.
 
 
