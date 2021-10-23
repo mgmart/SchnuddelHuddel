@@ -55,7 +55,7 @@ On the emacs side one could utilise org-protocol which can be extended with addi
 
 <meta itemprop="datePublished" content="2017-12-04T18:35:41&#43;01:00" />
 <meta itemprop="dateModified" content="2017-12-04T18:35:41&#43;01:00" />
-<meta itemprop="wordCount" content="193">
+<meta itemprop="wordCount" content="200">
 
 
 
@@ -308,7 +308,7 @@ On the emacs side one could utilise org-protocol which can be extended with addi
             <i class="fa fa-calendar"></i>
             <time datetime="2017-12-04 18:35:41 &#43;0100 CET" itemprop="datePublished">2017-12-04</time>
             &middot;
-            193
+            200
             words
             &middot;
             1
@@ -368,11 +368,9 @@ beside org-mode.</p>
 <p>The protocol could be fairly simple and the command could be reduced to: <code>mode</code> which is the sub-protocol, <code>action</code> and <code>data</code>.</p>
 
 <p>Some examples (not url-encoded for better readability):</p>
-
-<p>org-protocol://sub-protocol?key=val&key2=val2
-org-protocol://ledger?action=add&data=value:5,00€;account1:cash;account2:snacks;payee:Not Starbucks;comments:fine coffee
-org-protocol://cal?action=list&data=from:today;for:1week</p>
-
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">org<span style="color:#555">-</span><span style="color:#99f">protocol</span>:<span style="color:#09f;font-style:italic">//sub-protocol?key=val&amp;key2=val2
+</span><span style="color:#09f;font-style:italic"></span>org<span style="color:#555">-</span><span style="color:#99f">protocol</span>:<span style="color:#09f;font-style:italic">//ledger?action=add&amp;data=value:5,00€;account1:cash;account2:snacks;payee:Not Starbucks;comments:fine coffee
+</span><span style="color:#09f;font-style:italic"></span>org<span style="color:#555">-</span><span style="color:#99f">protocol</span>:<span style="color:#555">//</span>cal<span style="color:#555">?</span>action<span style="color:#555">=</span>list<span style="color:#555">&amp;</span>data<span style="color:#555">=</span><span style="color:#99f">from</span>:today;<span style="color:#069;font-weight:bold">for</span><span style="color:#555">:</span><span style="color:#f60">1</span>week</code></pre></div>
 <p>Any results could be written to a special file which would be used to inform the
 user<sup class="footnote-ref" id="fnref:1"><a rel="footnote" href="#fn:1">1</a></sup>.</p>
 
@@ -381,9 +379,10 @@ The middleware-component which is here called <code>emacs-engine</code> could be
 <li>a chat bot</li>
 <li>a gRPC client</li>
 <li>a REST client</li>
+and could be implemented with any language.
 </ul>
 
-<p>So it would be possible to integrate <code>emacs-engine</code> into workflows implemented by Apple Shortcuts.</p>
+<p>It would also be possible to integrate <code>emacs-engine</code> into workflows implemented by Apple Shortcuts.</p>
 <div class="footnotes">
 
 <hr />
