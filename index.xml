@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pragmatic</title>
+    <link>https://schnuddelhuddel.de/</link>
+    <description>Recent content on Pragmatic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>Mario Martelli --  [Imprint](/imprint) </copyright>
+    <lastBuildDate>Mon, 04 Dec 2017 18:35:41 +0100</lastBuildDate>
+    
+	<atom:link href="https://schnuddelhuddel.de/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Control emacs from your mobile</title>
+      <link>https://schnuddelhuddel.de/emacs-engine-problem-statement/</link>
+      <pubDate>Mon, 04 Dec 2017 18:35:41 +0100</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/emacs-engine-problem-statement/</guid>
+      <description>This week I participated at the emacs FFM Meetup where we talked about the idea of a chat bot extension for org-mode. I had to leave early, so I do not know what the results of the discussion were.
+Nevertheless I did some thought on my own:
+I would like to control everything I do in emacs from my mobile while I&#39;m on-the-go - not only org-mode related things.
+On the emacs side one could utilise org-protocol which can be extended with additional protocol-handlers and despite the name it can also be used for things beside org-mode.</description>
+    </item>
+    
+    <item>
+      <title>Posting Apple Watch Workouts to Strava (Ⅱ)</title>
+      <link>https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava-2/</link>
+      <pubDate>Mon, 04 Dec 2017 18:35:41 +0100</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava-2/</guid>
+      <description>After I wrote about this topic 2 weeks ago in my last post, I made a few changes to my setup. First of all, I made some changes to GPXExport so that it would better fit my needs. I collected this changes in a new repo and named it WorkoutExporter. The main change is that WorkoutExporter writes the GPX in a more readable manner1.
+I also remembered that I experimented in the past with tapiriik in the past.</description>
+    </item>
+    
+    <item>
+      <title>Workout Exporter Privacy Policy</title>
+      <link>https://schnuddelhuddel.de/workoutexporter/privacy/</link>
+      <pubDate>Sat, 25 Nov 2017 10:27:25 +0100</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/workoutexporter/privacy/</guid>
+      <description>Workout Exporter Privacy Policy The Workout Exporter privacy policy is extremely simple: We don&#39;t share your activity data with anyone at all except when you decide to do so yourself by sharing an activity on Facebook, dailymile, twitter, emails, sms etc.
+Non-identifiable usage analytics are tracked using TestFlight.</description>
+    </item>
+    
+    <item>
+      <title>Posting Apple Watch Workouts to Strava</title>
+      <link>https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava/</link>
+      <pubDate>Sun, 19 Nov 2017 15:44:08 +0100</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava/</guid>
+      <description>Until the latest release to Apple Watch seemed not to be useful to me. But with Apple Watch Series 3 and WatchOS4 several things are fixed. There is no need anymore to carry the phone during exercise and it&#39;s possible to access all training data by HealthKit.
+The battery should last for the usual run or short ride. I expect the watch to last at least for a 10h ride.</description>
+    </item>
+    
+    <item>
+      <title>Deployment of a Hugo site on GitHub Pages</title>
+      <link>https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/</link>
+      <pubDate>Mon, 03 Jul 2017 11:02:49 +0200</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/</guid>
+      <description>GitHub Pages is a nice addition to GitHub which allows you to publish a website without much effort.
+As I looked around for guidance how to automate the deployment of a Hugo site to GitHub Pages I&#39;ve only found rather complicated methods. Involving either local publishing with scripts which will publish the generated site to GitHub. Or automated setups which consists of scripts which do git commits over ssh.
+I went for the automated GitHub Pages deployment with Wercker in the first step.</description>
+    </item>
+    
+    <item>
+      <title>Creating new Org Files for Hugo</title>
+      <link>https://schnuddelhuddel.de/creating-new-org-files-for-hugo/</link>
+      <pubDate>Sat, 03 Jun 2017 18:44:38 +0200</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/creating-new-org-files-for-hugo/</guid>
+      <description>As the command `hugo new` does not work for org files I&#39;m using emacs for that task.
+The code is based on what I found at Peter Smith&#39;s which seem to be based on the code from Tohojo.
+First we&#39;ve to set the location where the blog source files are.
+(setq hugo-base-dir &amp;#34;~/Documents/repo/TechBlog/&amp;#34;) Then we need the current time in two formats. The first for the name of the file we are creating and the second is used in the frontmatter.</description>
+    </item>
+    
+    <item>
+      <title>404 - page not found</title>
+      <link>https://schnuddelhuddel.de/404/</link>
+      <pubDate>Sun, 19 Feb 2017 16:55:28 +0100</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/404/</guid>
+      <description>The content you&amp;rsquo;re looking for doesn&amp;rsquo;t seem to exist.</description>
+    </item>
+    
+    <item>
+      <title>Switching from Wordpress to Hugo</title>
+      <link>https://schnuddelhuddel.de/switching-from-wordpress-to-hugo/</link>
+      <pubDate>Sun, 19 Feb 2017 16:55:28 +0100</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/switching-from-wordpress-to-hugo/</guid>
+      <description>I used Wordpress for about 10 years. In those ten years I produced 72 posts. Most of these posts were about audaxes or travels I made. During the travels I made my posts with the Wordpress iOS client application. Which was sometimes a hassle because pictures weren&#39;t uploaded reliably and I ended up with missing pictures in my posts.
+Also the amount of vulnerabilities either in php or in Wordpress increased.</description>
+    </item>
+    
+  </channel>
+</rss>

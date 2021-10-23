@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on Pragmatic</title>
+    <link>https://schnuddelhuddel.de/tags/github/</link>
+    <description>Recent content in Github on Pragmatic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>Mario Martelli --  [Imprint](/imprint) </copyright>
+    <lastBuildDate>Mon, 03 Jul 2017 11:02:49 +0200</lastBuildDate>
+    
+	<atom:link href="https://schnuddelhuddel.de/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deployment of a Hugo site on GitHub Pages</title>
+      <link>https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/</link>
+      <pubDate>Mon, 03 Jul 2017 11:02:49 +0200</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/</guid>
+      <description>GitHub Pages is a nice addition to GitHub which allows you to publish a website without much effort.
+As I looked around for guidance how to automate the deployment of a Hugo site to GitHub Pages I&#39;ve only found rather complicated methods. Involving either local publishing with scripts which will publish the generated site to GitHub. Or automated setups which consists of scripts which do git commits over ssh.
+I went for the automated GitHub Pages deployment with Wercker in the first step.</description>
+    </item>
+    
+  </channel>
+</rss>

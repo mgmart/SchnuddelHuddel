@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+    <title>Deployment of a Hugo site on GitHub Pages &middot; Pragmatic</title>
+    <meta name="generator" content="Hugo 0.31" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="Mario Martelli">
+    
+      <meta name="description" content="">
+    
+    
+    <link rel="canonical" href="https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/"/>
+    <link rel="icon" href="https://schnuddelhuddel.de/favicon.ico">
+    <link rel="apple-touch-icon" href="https://schnuddelhuddel.de/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="https://schnuddelhuddel.de/css/style.css">
+    <link rel="stylesheet" href="https://schnuddelhuddel.de/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://schnuddelhuddel.de/css/monokai.css">
+    <link rel="stylesheet" href="https://schnuddelhuddel.de/fancybox/jquery.fancybox.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="Deployment of a Hugo site on GitHub Pages" />
+<meta property="og:description" content="GitHub Pages is a nice addition to GitHub which allows you to publish a website without much effort.
+As I looked around for guidance how to automate the deployment of a Hugo site to GitHub Pages I&#39;ve only found rather complicated methods. Involving either local publishing with scripts which will publish the generated site to GitHub. Or automated setups which consists of scripts which do git commits over ssh.
+I went for the automated GitHub Pages deployment with Wercker in the first step." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/" />
+
+
+
+<meta property="article:published_time" content="2017-07-03T11:02:49&#43;02:00"/>
+
+<meta property="article:modified_time" content="2017-07-03T11:02:49&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+<meta itemprop="name" content="Deployment of a Hugo site on GitHub Pages">
+<meta itemprop="description" content="GitHub Pages is a nice addition to GitHub which allows you to publish a website without much effort.
+As I looked around for guidance how to automate the deployment of a Hugo site to GitHub Pages I&#39;ve only found rather complicated methods. Involving either local publishing with scripts which will publish the generated site to GitHub. Or automated setups which consists of scripts which do git commits over ssh.
+I went for the automated GitHub Pages deployment with Wercker in the first step.">
+
+
+<meta itemprop="datePublished" content="2017-07-03T11:02:49&#43;02:00" />
+<meta itemprop="dateModified" content="2017-07-03T11:02:49&#43;02:00" />
+<meta itemprop="wordCount" content="623">
+
+
+
+<meta itemprop="keywords" content="hugo,,github," />
+
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Deployment of a Hugo site on GitHub Pages"/>
+<meta name="twitter:description" content="GitHub Pages is a nice addition to GitHub which allows you to publish a website without much effort.
+As I looked around for guidance how to automate the deployment of a Hugo site to GitHub Pages I&#39;ve only found rather complicated methods. Involving either local publishing with scripts which will publish the generated site to GitHub. Or automated setups which consists of scripts which do git commits over ssh.
+I went for the automated GitHub Pages deployment with Wercker in the first step."/>
+<meta name="twitter:site" content="@schnuddelhuddel"/>
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="https://schnuddelhuddel.de" id="logo">
+          
+          <i class="logo" style="background-image: url('https://schnuddelhuddel.de/logo/logo.png')"></i>
+          
+          <span class="site-title">Pragmatic</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+	  
+	  <a class="main-nav-link" href="https://schnuddelhuddel.de/about/"><i class="fa fa-info"></i> About</a>
+	  
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+	  
+	  <a class="main-nav-link" href="https://schnuddelhuddel.de/tags/"><i class="fa fa-tags"></i> Tags</a>
+	  
+          
+          
+          
+	  
+	  <a class="main-nav-link" href="https://www.martelli.de"><i class="fa fa-bicycle"></i> Cycling</a>
+	  
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://schnuddelhuddel.de/logo/Avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="Search">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="sitesearch" value="https://schnuddelhuddel.de" />
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+	  
+	  <a class="main-nav-link" href="https://schnuddelhuddel.de/about/" title ="About">
+	    <i class="fa fa-info"></i>
+	  </a>
+	  
+
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+	  
+	  <a class="main-nav-link" href="https://schnuddelhuddel.de/tags/" title ="Tags">
+	    <i class="fa fa-tags"></i>
+	  </a>
+	  
+          
+          
+          
+	  
+	  <a class="main-nav-link" href="https://www.martelli.de" title ="Cycling">
+	    <i class="fa fa-bicycle"></i>
+	  </a>
+	  
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="sitesearch" value="https://schnuddelhuddel.de" />
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   	
+    	<aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      
+      <img id="avatar" src="https://schnuddelhuddel.de/logo/Avatar.png">
+      
+      <h2 id="name">Mario Martelli</h2>
+      <h3 id="title">Pragmatic Integrator</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Europe</span>
+      
+          <a id="follow" href="https://twitter.com/schnuddelhuddel">
+              Follow
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        6
+        <span>Posts</span>
+      </div>
+      <div class="article-info-block">
+        
+          8
+        
+        <span>
+            Tags
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/mgmart" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//twitter.com/schnuddelhuddel" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
+
+
+          <td><a href="https://schnuddelhuddel.de/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+    
+
+    <section id="main">
+    
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            <img src="https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/crowd.jpg" class="article-banner">
+        
+
+        <header class="article-header">
+    <a href="https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/">
+    <h1 class="article-title" itemprop="name">
+        Deployment of a Hugo site on GitHub Pages
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2017-07-03 11:02:49 &#43;0200 CEST" itemprop="datePublished">2017-07-03</time>
+            &middot;
+            623
+            words
+            &middot;
+            3
+            minute read
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="https://schnuddelhuddel.de/categories/hugo">hugo</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://schnuddelhuddel.de/tags/hugo">hugo,</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://schnuddelhuddel.de/tags/github">github</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p><a href="https://pages.github.com/" title="GitHub Pages" target="_blank">GitHub Pages</a> is a nice addition to <a href="https://github.com/" title="GitHub" target="_blank">GitHub</a> which allows you to publish a website
+without much effort.</p>
+
+<p>As I looked around for guidance how to automate the deployment of a Hugo site to
+GitHub Pages I've only found rather complicated methods. Involving either
+local publishing with scripts which will publish the generated site to
+GitHub. Or automated setups which consists of scripts which do git commits over
+ssh.</p>
+
+<p>I went for the automated GitHub Pages deployment with <a href="http://www.wercker.com/" title="Wercker" target="_blank">Wercker</a> in the first
+step. I did later realise that it is too complicated (at least for me) to
+change the steps involved. For example I wanted not to hard-wire the theme in
+my repository and went for a <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" title="git submodule" target="_blank">git submodule</a> approach. Which was not supported by
+the Wercker Hugo-steps which are available.</p>
+
+<p>I summarise the steps which are needed to allow an automated deployment to
+GitHub pages using <a href="https://travis-ci.org/" title="Travis CI" target="_blank">Travis CI</a>.</p>
+
+<h2 id="create-the-local-repository">Create the local repository</h2>
+
+<p>In the first step we create a git repository locally.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir <span style="color:#c30">&#34;My Fantastic Blog&#34;</span>
+<span style="color:#366">cd</span> My<span style="color:#c30;font-weight:bold">\ </span>Fantastic <span style="color:#c30;font-weight:bold">\B</span>log
+git init</code></pre></div>
+<p>Which would be acknowledged by git with something like:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Initialized empty Git repository in ~/Documents/repo/My Fantastic Blog/.git/</code></pre></div>
+<p>You now have a local git repository where you can build up your site.</p>
+
+<h2 id="select-a-theme-and-install-it">Select a theme and install it</h2>
+
+<p>There are <a href="https://themes.gohugo.io/" title="a bunch of nice themes" target="_blank">a bunch of nice themes</a> available. Choose one and install it.</p>
+
+<p>As an example we select the nice <a href="https://themes.gohugo.io/hugo-icarus/" title="Hugo Icarus" target="_blank">Hugo Icarus</a> theme. We are using the <code>git
+submodule</code> approach, this allows us to use always the latest theme version for
+the automated deployment.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git submodule add https://github.com/digitalcraftsman/hugo-icarus-theme.git themes/hugo-icarus-theme</code></pre></div>
+<p>We then ignore the now created <code>themes</code> directory and stage the changes we've
+made so far.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add .gitmodules
+git add themes/hugo-icarus-theme
+git commit -m <span style="color:#c30">&#34;theme is added&#34;</span></code></pre></div>
+<h2 id="providing-some-content">Providing some content</h2>
+
+<p>For the sake of this example we now simulate some content by copying the <code>exampleSite</code> 
+content to our site.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp -R themes/hugo-icarus-theme/exampleSite/* .</code></pre></div>
+<p>and make some changes to <code>config.toml</code></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#033">baseurl</span> <span style="color:#555">=</span> <span style="color:#c30">&#34;https://GITHUB_USERNAME.github.io&#34;</span></code></pre></div>
+<p>Where <code>GITHUB_USERNAME</code> is your GitHub username.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#033">themesDir</span> <span style="color:#555">=</span> <span style="color:#c30">&#34;themes/&#34;</span></code></pre></div>
+<p>At this point you should be able to serve the site locally by starting the Hugo
+server.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo server</code></pre></div>
+<p>You can view the site at <code>http://localhost:1313</code></p>
+
+<p>If everything went fine so far you can commit your changes once again.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add .
+git commit -m <span style="color:#c30">&#34;Some example content is added&#34;</span></code></pre></div>
+<h2 id="create-the-github-repository">Create the GitHub repository</h2>
+
+<p>At GitHub choose <code>New Repository</code> and name it with <code>GITHUB_USERNAME.github.io</code>. 
+Please exchange <code>GITHUB_USERNAME</code> with your actual GitHub username.</p>
+
+<p><img src="Create_a_New_Repository.png" alt="Create a New Repository" title="Create a New Repository" /></p>
+
+<p>After you've pressed <code>create</code> you see some information displayed.</p>
+
+<p>Copy the part listed under <code>…or push an existing repository from the command
+line</code> which looks like:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git checkout -b deploy
+git remote add origin git@github.com:GITHUB_USERNAME/GITHUB_USERNAME.github.io.git
+git push -u origin deploy</code></pre></div>
+<p>and execute this using your shell. You should now see your repository on GitHub
+filled with content.</p>
+
+<h2 id="deployment-automation">Deployment Automation</h2>
+
+<p>We'll use <a href="https://travis-ci.org/" title="Travis CI" target="_blank">Travis CI</a> to build our site and deploy it afterwards to 
+the <code>master</code> branch of our repository.</p>
+
+<p>To allow Travis CI access to our repository we need to <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/" title="create a personal access
+token" target="_blank">create a personal access
+token</a>, which is used in the <a href="https://docs.travis-ci.com/user/environment-variables#Defining-Variables-in-Repository-Settings" title="repository settings" target="_blank">repository settings</a>.</p>
+
+<p><img src="Settings--Travis_CI.png" alt="GITHUB_TOKEN Configuration" title="GITHUB_TOKEN Configuration" /></p>
+
+<p>The process of setting up GitHub Pages deployment is nicely described in the
+<a href="https://docs.travis-ci.com/user/deployment/pages/" title="Travis CI documentation." target="_blank">Travis CI documentation.</a></p>
+
+<p>The following <code>travis.yml</code> works nicely with Hugo.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">sudo:<span style="color:#bbb"> </span>required<span style="color:#bbb">
+</span><span style="color:#bbb"></span>python:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span><span style="color:#c30">&#34;2.7&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic"># Clean and don&#39;t fail</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>install:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>sudo<span style="color:#bbb"> </span>pip<span style="color:#bbb"> </span>install<span style="color:#bbb"> </span>pygments<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>wget<span style="color:#bbb"> </span>-O<span style="color:#bbb"> </span>/tmp/hugo.deb<span style="color:#bbb"> </span>https://github.com/gohugoio/hugo/releases/download/v<span style="color:#f60">0.24</span>.<span style="color:#f60">1</span>/hugo_<span style="color:#f60">0.24</span>.1_Linux-64bit.deb<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>sudo<span style="color:#bbb"> </span>dpkg<span style="color:#bbb"> </span>-i<span style="color:#bbb"> </span>/tmp/hugo.deb<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>rm<span style="color:#bbb"> </span>-rf<span style="color:#bbb"> </span>public<span style="color:#bbb"> </span>|<span style="color:#c30;font-style:italic">| exit 0</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic"># Build the website</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>script:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>pygmentize<span style="color:#bbb"> </span>-V<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>git<span style="color:#bbb"> </span>submodule<span style="color:#bbb"> </span>update<span style="color:#bbb"> </span>--init<span style="color:#bbb"> </span>--recursive<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>hugo<span style="color:#bbb"> </span>-v<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#09f;font-style:italic"># Deploy to GitHub pages</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>deploy:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>provider:<span style="color:#bbb"> </span>pages<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>skip_cleanup:<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">true</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>local_dir:<span style="color:#bbb"> </span>public<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>target-branch:<span style="color:#bbb"> </span>master<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>github_token:<span style="color:#bbb"> </span>$GITHUB_TOKEN<span style="color:#bbb"> </span><span style="color:#09f;font-style:italic"># Set in travis-ci.org dashboard</span><span style="color:#bbb">
+</span><span style="color:#bbb">  </span>on:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>branch:<span style="color:#bbb"> </span>deploy</code></pre></div>
+<p>After adding <code>travis.yml</code> to the root directory of our site we commit and push
+our changes to GitHub.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add .travis.yaml
+git commit -m <span style="color:#c30">&#34;Travis CI configuration is added&#34;</span>
+git push -u origin master</code></pre></div>
+<p>After a while Travis CI should recognise that there was a recent push to the
+repository and it should start to build your site with Hugo and deploy it afterwards.
+This should now happen each time you make changes to your repository at GitHub.</p>
+
+        </div>
+        <footer class="article-footer">
+    <a data-url="https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/" data-id="2625eb612830e36904cb9deda119e63b" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="https://schnuddelhuddel.de/creating-new-org-files-for-hugo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">Creating new Org Files for Hugo</div>
+    </a>
+    
+
+    
+    <a href="https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Newer
+      </strong>
+      <div class="article-nav-title">Posting Apple Watch Workouts to Strava</div>
+    </a>
+    
+</nav>
+
+
+</article>
+
+
+
+
+    </section>
+
+   	
+    	<aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        Recents
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://schnuddelhuddel.de/emacs-engine-problem-statement/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://schnuddelhuddel.de/images/emacs-ffm.jpeg)" alt="Deployment of a Hugo site on GitHub Pages" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://schnuddelhuddel.de/categories/emacs">
+                        emacs
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://schnuddelhuddel.de/emacs-engine-problem-statement/" class="title">Control emacs from your mobile</a></p>
+                    <p class="item-date">
+                        <time datetime="2017-12-04 18:35:41 &#43;0100 CET" itemprop="datePublished">2017-12-04</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava-2/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://schnuddelhuddel.de/images/workout-exporter.png)" alt="Deployment of a Hugo site on GitHub Pages" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://schnuddelhuddel.de/categories/integration">
+                        Integration
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava-2/" class="title">Posting Apple Watch Workouts to Strava (Ⅱ)</a></p>
+                    <p class="item-date">
+                        <time datetime="2017-12-04 18:35:41 &#43;0100 CET" itemprop="datePublished">2017-12-04</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://schnuddelhuddel.de/images/gears.png)" alt="Deployment of a Hugo site on GitHub Pages" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://schnuddelhuddel.de/categories/integration">
+                        Integration
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava/" class="title">Posting Apple Watch Workouts to Strava</a></p>
+                    <p class="item-date">
+                        <time datetime="2017-11-19 15:44:08 &#43;0100 CET" itemprop="datePublished">2017-11-19</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/crowd.jpg)" alt="Deployment of a Hugo site on GitHub Pages" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://schnuddelhuddel.de/categories/hugo">
+                        hugo
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/" class="title">Deployment of a Hugo site on GitHub Pages</a></p>
+                    <p class="item-date">
+                        <time datetime="2017-07-03 11:02:49 &#43;0200 CEST" itemprop="datePublished">2017-07-03</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://schnuddelhuddel.de/creating-new-org-files-for-hugo/" class="thumbnail">
+                    
+                        <span style="background-image:url(https://schnuddelhuddel.de/images/blue-unicorn.png)" alt="Deployment of a Hugo site on GitHub Pages" class="thumbnail-image"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://schnuddelhuddel.de/categories/emacs">
+                        emacs
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://schnuddelhuddel.de/creating-new-org-files-for-hugo/" class="title">Creating new Org Files for Hugo</a></p>
+                    <p class="item-date">
+                        <time datetime="2017-06-03 18:44:38 &#43;0200 CEST" itemprop="datePublished">2017-06-03</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/categories/emacs">
+                    emacs
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/categories/hugo">
+                    hugo
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/categories/integration">
+                    integration
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/categories/tools">
+                    tools
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        Tags
+    </h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/tags/emacs">
+                    emacs
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/tags/git">
+                    git
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/tags/github">
+                    github
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/tags/hugo">
+                    hugo
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/tags/org-mode">
+                    org-mode
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/tags/strava">
+                    strava
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/tags/watchos">
+                    watchos
+                </a>
+                <span class="category-list-count">2</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://schnuddelhuddel.de/tags/wordpress">
+                    wordpress
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        Tag cloud
+    </h3>
+    <div class="widget tagcloud">
+        
+        
+        <a href="https://schnuddelhuddel.de/tags/emacs" style="font-size: 12px;">emacs</a>
+        
+        
+        <a href="https://schnuddelhuddel.de/tags/git" style="font-size: 12px;">git</a>
+        
+        
+        <a href="https://schnuddelhuddel.de/tags/github" style="font-size: 12px;">github</a>
+        
+        
+        <a href="https://schnuddelhuddel.de/tags/hugo" style="font-size: 12px;">hugo</a>
+        
+        
+        <a href="https://schnuddelhuddel.de/tags/org-mode" style="font-size: 12px;">org-mode</a>
+        
+        
+        <a href="https://schnuddelhuddel.de/tags/strava" style="font-size: 12px;">strava</a>
+        
+        
+        <a href="https://schnuddelhuddel.de/tags/watchos" style="font-size: 12px;">watchos</a>
+        
+        
+        <a href="https://schnuddelhuddel.de/tags/wordpress" style="font-size: 12px;">wordpress</a>
+        
+    </div>
+</div>
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021
+      Mario Martelli &ndash;  <a href="/imprint">Imprint</a> <br/>
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>. Theme by <a href="http://github.com/ppoffice" target="_blank">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://schnuddelhuddel.de/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://schnuddelhuddel.de/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+</body>
+</html>

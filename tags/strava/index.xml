@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Strava on Pragmatic</title>
+    <link>https://schnuddelhuddel.de/tags/strava/</link>
+    <description>Recent content in Strava on Pragmatic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>Mario Martelli --  [Imprint](/imprint) </copyright>
+    <lastBuildDate>Mon, 04 Dec 2017 18:35:41 +0100</lastBuildDate>
+    
+	<atom:link href="https://schnuddelhuddel.de/tags/strava/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Posting Apple Watch Workouts to Strava (Ⅱ)</title>
+      <link>https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava-2/</link>
+      <pubDate>Mon, 04 Dec 2017 18:35:41 +0100</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava-2/</guid>
+      <description>After I wrote about this topic 2 weeks ago in my last post, I made a few changes to my setup. First of all, I made some changes to GPXExport so that it would better fit my needs. I collected this changes in a new repo and named it WorkoutExporter. The main change is that WorkoutExporter writes the GPX in a more readable manner1.
+I also remembered that I experimented in the past with tapiriik in the past.</description>
+    </item>
+    
+    <item>
+      <title>Posting Apple Watch Workouts to Strava</title>
+      <link>https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava/</link>
+      <pubDate>Sun, 19 Nov 2017 15:44:08 +0100</pubDate>
+      
+      <guid>https://schnuddelhuddel.de/posting-apple-watch-trainings-to-strava/</guid>
+      <description>Until the latest release to Apple Watch seemed not to be useful to me. But with Apple Watch Series 3 and WatchOS4 several things are fixed. There is no need anymore to carry the phone during exercise and it&#39;s possible to access all training data by HealthKit.
+The battery should last for the usual run or short ride. I expect the watch to last at least for a 10h ride.</description>
+    </item>
+    
+  </channel>
+</rss>
