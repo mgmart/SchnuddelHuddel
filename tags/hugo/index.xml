@@ -1,49 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Hugo on Pragmatic</title>
-    <link>https://schnuddelhuddel.de/tags/hugo/</link>
-    <description>Recent content in Hugo on Pragmatic</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>Mario Martelli --  [Imprint](/imprint) </copyright>
-    <lastBuildDate>Mon, 03 Jul 2017 11:02:49 +0200</lastBuildDate>
-    
-	<atom:link href="https://schnuddelhuddel.de/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Deployment of a Hugo site on GitHub Pages</title>
-      <link>https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/</link>
-      <pubDate>Mon, 03 Jul 2017 11:02:49 +0200</pubDate>
-      
-      <guid>https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/</guid>
-      <description>GitHub Pages is a nice addition to GitHub which allows you to publish a website without much effort.
-As I looked around for guidance how to automate the deployment of a Hugo site to GitHub Pages I&#39;ve only found rather complicated methods. Involving either local publishing with scripts which will publish the generated site to GitHub. Or automated setups which consists of scripts which do git commits over ssh.
-I went for the automated GitHub Pages deployment with Wercker in the first step.</description>
-    </item>
-    
-    <item>
-      <title>Creating new Org Files for Hugo</title>
-      <link>https://schnuddelhuddel.de/creating-new-org-files-for-hugo/</link>
-      <pubDate>Sat, 03 Jun 2017 18:44:38 +0200</pubDate>
-      
-      <guid>https://schnuddelhuddel.de/creating-new-org-files-for-hugo/</guid>
-      <description>As the command `hugo new` does not work for org files I&#39;m using emacs for that task.
-The code is based on what I found at Peter Smith&#39;s which seem to be based on the code from Tohojo.
-First we&#39;ve to set the location where the blog source files are.
-(setq hugo-base-dir &amp;#34;~/Documents/repo/TechBlog/&amp;#34;) Then we need the current time in two formats. The first for the name of the file we are creating and the second is used in the frontmatter.</description>
-    </item>
-    
-    <item>
-      <title>Switching from Wordpress to Hugo</title>
-      <link>https://schnuddelhuddel.de/switching-from-wordpress-to-hugo/</link>
-      <pubDate>Sun, 19 Feb 2017 16:55:28 +0100</pubDate>
-      
-      <guid>https://schnuddelhuddel.de/switching-from-wordpress-to-hugo/</guid>
-      <description>I used Wordpress for about 10 years. In those ten years I produced 72 posts. Most of these posts were about audaxes or travels I made. During the travels I made my posts with the Wordpress iOS client application. Which was sometimes a hassle because pictures weren&#39;t uploaded reliably and I ended up with missing pictures in my posts.
-Also the amount of vulnerabilities either in php or in Wordpress increased.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hugo on Pragmatic</title><link>https://schnuddelhuddel.de/tags/hugo/</link><description>Recent content in hugo on Pragmatic</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Mon, 03 Jul 2017 11:02:49 +0200</lastBuildDate><atom:link href="https://schnuddelhuddel.de/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>Deployment of a Hugo site on GitHub Pages</title><link>https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/</link><pubDate>Mon, 03 Jul 2017 11:02:49 +0200</pubDate><guid>https://schnuddelhuddel.de/deployment-of-a-hugo-site-on-github-pages/</guid><description>GitHub Pages is a nice addition to GitHub which allows you to publish a website without much effort.
+As I looked around for guidance how to automate the deployment of a Hugo site to GitHub Pages I&amp;#39;ve only found rather complicated methods. Involving either local publishing with scripts which will publish the generated site to GitHub. Or automated setups which consists of scripts which do git commits over ssh.</description></item><item><title>Creating new Org Files for Hugo</title><link>https://schnuddelhuddel.de/creating-new-org-files-for-hugo/</link><pubDate>Sat, 03 Jun 2017 18:44:38 +0200</pubDate><guid>https://schnuddelhuddel.de/creating-new-org-files-for-hugo/</guid><description>As the command `hugo new` does not work for org files I&amp;#39;m using emacs for that task.
+The code is based on what I found at Peter Smith&amp;#39;s which seem to be based on the code from Tohojo.
+First we&amp;#39;ve to set the location where the blog source files are. (setq hugo-base-dir &amp;#34;~/Documents/repo/TechBlog/&amp;#34;) Then we need the current time in two formats. The first for the name of the file we are creating and the second is used in the frontmatter.</description></item><item><title>Switching from Wordpress to Hugo</title><link>https://schnuddelhuddel.de/switching-from-wordpress-to-hugo/</link><pubDate>Sun, 19 Feb 2017 16:55:28 +0100</pubDate><guid>https://schnuddelhuddel.de/switching-from-wordpress-to-hugo/</guid><description>I used Wordpress for about 10 years. In those ten years I produced 72 posts. Most of these posts were about audaxes or travels I made. During the travels I made my posts with the Wordpress iOS client application. Which was sometimes a hassle because pictures weren&amp;#39;t uploaded reliably and I ended up with missing pictures in my posts.
+Also the amount of vulnerabilities either in php or in Wordpress increased.</description></item></channel></rss>

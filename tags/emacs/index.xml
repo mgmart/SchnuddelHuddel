@@ -1,28 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Emacs on Pragmatic</title>
-    <link>https://schnuddelhuddel.de/tags/emacs/</link>
-    <description>Recent content in Emacs on Pragmatic</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-gb</language>
-    <copyright>Mario Martelli --  [Imprint](/imprint) </copyright>
-    <lastBuildDate>Mon, 04 Dec 2017 18:35:41 +0100</lastBuildDate>
-    
-	<atom:link href="https://schnuddelhuddel.de/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Control emacs from your mobile</title>
-      <link>https://schnuddelhuddel.de/emacs-engine-problem-statement/</link>
-      <pubDate>Mon, 04 Dec 2017 18:35:41 +0100</pubDate>
-      
-      <guid>https://schnuddelhuddel.de/emacs-engine-problem-statement/</guid>
-      <description>This week I participated at the emacs FFM Meetup where we talked about the idea of a chat bot extension for org-mode. I had to leave early, so I do not know what the results of the discussion were.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on Pragmatic</title><link>https://schnuddelhuddel.de/tags/emacs/</link><description>Recent content in emacs on Pragmatic</description><generator>Hugo -- gohugo.io</generator><language>en-gb</language><lastBuildDate>Wed, 20 Oct 2021 18:35:41 +0100</lastBuildDate><atom:link href="https://schnuddelhuddel.de/tags/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>Control emacs from your mobile</title><link>https://schnuddelhuddel.de/emacs-engine-problem-statement/</link><pubDate>Wed, 20 Oct 2021 18:35:41 +0100</pubDate><guid>https://schnuddelhuddel.de/emacs-engine-problem-statement/</guid><description>This week I participated at the emacs FFM Meetup where we talked about the idea of a chat bot extension for org-mode. I had to leave early, so I do not know what the results of the discussion were.
 Nevertheless I did some thought on my own:
-I would like to control everything I do in emacs from my mobile while I&#39;m on-the-go - not only org-mode related things.
-On the emacs side one could utilise org-protocol which can be extended with additional protocol-handlers and despite the name it can also be used for things beside org-mode.</description>
-    </item>
-    
-  </channel>
-</rss>
+I would like to control everything I do in emacs from my mobile while I&amp;#39;m on-the-go - not only org-mode related things.</description></item></channel></rss>
