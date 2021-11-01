@@ -1,4 +1,4 @@
-#+DATE: 2017-12-04T18:35:41+01:00
+#+DATE: 2021-10-20T18:35:41+01:00
 #+TITLE: Control emacs from your mobile
 #+URL: /emacs-engine-problem-statement/
 #+BANNER: /images/emacs-ffm.jpeg
@@ -19,16 +19,16 @@ On the emacs side one could utilise org-protocol which can be extended with
 additional protocol-handlers and despite the name it can also be used for things
 beside org-mode.
 
-[[file:org-prot.png][usage of org-protocol]]
+[[org-prot.png]]
 
 The protocol could be fairly simple and the command could be reduced to: ~mode~ which is the sub-protocol, ~action~ and ~data~.
 
 Some examples (not url-encoded for better readability):
-#+begin_example shell
+#+begin_src c
 org-protocol://sub-protocol?key=val&key2=val2
 org-protocol://ledger?action=add&data=value:5,00€;account1:cash;account2:snacks;payee:Not Starbucks;comments:fine coffee
 org-protocol://cal?action=list&data=from:today;for:1week
-#+end_example
+#+end_src
 
 Any results could be written to a special file which would be used to inform the
 user[fn:1].

@@ -53,7 +53,7 @@ last at least for a 10h ride.
    repository on my iPhone. On my server I installed a post-receive hook which
    posts the workouts to Strava by using [[https://github.com/dlenski/stravacli][stravacli]].
 
-#+BEGIN_EXAMPLE 
+#+BEGIN_SRC sh
 #!/bin/sh
 
 GIT_REPO=/opt/git/StravaUploads.git
@@ -85,7 +85,7 @@ done
 
 rm -rf $TMP_GIT_CLONE
 
-#+END_EXAMPLE
+#+END_SRC
 
 The ~PYTHONIOENCODING=UTF-8~ is necessary because I used the emoji expression of
 my last name in Strava.

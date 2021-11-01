@@ -2,6 +2,7 @@
 #+DESCRIPTION: "Because every apps needs a privacy policy"
 #+DATE: 2017-11-25T10:27:25+01:00
 #+AUTHOR: mgmart
+#+DRAFT: true
 #+PERMALINK: /WorkoutExporter/privacy
 
 
