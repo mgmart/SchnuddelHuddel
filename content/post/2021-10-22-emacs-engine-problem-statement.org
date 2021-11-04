@@ -1,0 +1,45 @@
+#+DATE: 2021-10-20T18:35:41+01:00
+#+TITLE: Control emacs from your mobile
+#+URL: /emacs-engine-problem-statement/
+#+BANNER: /images/emacs-ffm.jpeg
+#+CATEGORIES: emacs
+#+DRAFT: false
+#+TAGS: emacs org-mode
+
+This week I participated at the [[https://www.meetup.com/de-DE/emacs-ffm/][emacs FFM Meetup]] where we talked about the idea
+of a chat bot extension for org-mode. I had to leave early, so I do not know
+what the results of the discussion were.
+
+Nevertheless I did some thought on my own:
+
+I would like to control everything I do in emacs from my mobile while I'm
+on-the-go - not only org-mode related things.
+
+On the emacs side one could utilise org-protocol which can be extended with
+additional protocol-handlers and despite the name it can also be used for things
+beside org-mode.
+
+[[org-prot.png]]
+
+The protocol could be fairly simple and the command could be reduced to: ~mode~ which is the sub-protocol, ~action~ and ~data~.
+
+Some examples (not url-encoded for better readability):
+#+begin_src c
+org-protocol://sub-protocol?key=val&key2=val2
+org-protocol://ledger?action=add&data=value:5,00€;account1:cash;account2:snacks;payee:Not Starbucks;comments:fine coffee
+org-protocol://cal?action=list&data=from:today;for:1week
+#+end_src
+
+Any results could be written to a special file which would be used to inform the
+user[fn:1].
+
+The middleware-component which is here called ~emacs-engine~ could be e.g.
+- a chat bot
+- a gRPC client
+- a REST client
+
+So it would be possible to integrate ~emacs-engine~ into workflows implemented by Apple Shortcuts.
+
+[fn:1] Therefore the communication channel used by the user must provide a backchannel.
+
+

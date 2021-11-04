@@ -6,11 +6,11 @@ enableGitMode = true
 enableRobotsTXT = true
 title = "Pragmatic"
 # theme = "hpstr"
-theme = "hugo-icarus-theme"
+theme = "hugo-icarus"
 pluralizelisttitles = false
-PygmentsCodeFences = true
+# PygmentsCodeFences = true
 # pygmentsStyle = "monokai"
-pygmentsStyle = "manni"
+# pygmentsStyle = "manni"
 paginate = 10
 footnotereturnlinkcontents = "↩"
 

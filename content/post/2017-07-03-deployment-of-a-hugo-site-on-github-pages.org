@@ -27,17 +27,17 @@ GitHub pages using [[https://travis-ci.org/][Travis CI]].
 
 In the first step we create a git repository locally.
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 mkdir "My Fantastic Blog"
 cd My\ Fantastic \Blog
 git init
-#+END_EXAMPLE
+#+END_SRC
 
 Which would be acknowledged by git with something like: 
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 Initialized empty Git repository in ~/Documents/repo/My Fantastic Blog/.git/
-#+END_EXAMPLE
+#+END_SRC
 
 You now have a local git repository where you can build up your site.
 
@@ -49,55 +49,55 @@ As an example we select the nice [[https://themes.gohugo.io/hugo-icarus/][Hugo I
 submodule= approach, this allows us to use always the latest theme version for
 the automated deployment.
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 git submodule add https://github.com/digitalcraftsman/hugo-icarus-theme.git themes/hugo-icarus-theme
-#+END_EXAMPLE
+#+END_SRC
 
 We then ignore the now created =themes= directory and stage the changes we've
 made so far.
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 git add .gitmodules
 git add themes/hugo-icarus-theme
 git commit -m "theme is added"
-#+END_EXAMPLE
+#+END_SRC
 
 ** Providing some content
 
 For the sake of this example we now simulate some content by copying the =exampleSite= 
 content to our site.
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 cp -R themes/hugo-icarus-theme/exampleSite/* .
-#+END_EXAMPLE
+#+END_SRC
 
 and make some changes to =config.toml=
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 baseurl = "https://GITHUB_USERNAME.github.io"
-#+END_EXAMPLE
+#+END_SRC
 
 Where =GITHUB_USERNAME= is your GitHub username.
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 themesDir = "themes/"
-#+END_EXAMPLE
+#+END_SRC
 
 At this point you should be able to serve the site locally by starting the Hugo
 server.
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 hugo server
-#+END_EXAMPLE
+#+END_SRC
 
 You can view the site at =http://localhost:1313=
 
 If everything went fine so far you can commit your changes once again.
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 git add .
 git commit -m "Some example content is added"
-#+END_EXAMPLE
+#+END_SRC
 
 ** Create the GitHub repository
 
@@ -111,11 +111,11 @@ After you've pressed =create= you see some information displayed.
 Copy the part listed under =…or push an existing repository from the command
 line= which looks like:
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 git checkout -b deploy
 git remote add origin git@github.com:GITHUB_USERNAME/GITHUB_USERNAME.github.io.git
 git push -u origin deploy
-#+END_EXAMPLE
+#+END_SRC
 
 and execute this using your shell. You should now see your repository on GitHub
 filled with content.
@@ -135,7 +135,7 @@ The process of setting up GitHub Pages deployment is nicely described in the
 
 The following =travis.yml= works nicely with Hugo.
 
-#+BEGIN_EXAMPLE yaml
+#+BEGIN_SRC yaml
 sudo: required
 python:
   - "2.7"
@@ -163,16 +163,16 @@ deploy:
   on:
     branch: deploy
 
-#+END_EXAMPLE
+#+END_SRC
 
 After adding =travis.yml= to the root directory of our site we commit and push
 our changes to GitHub.
 
-#+BEGIN_EXAMPLE sh
+#+BEGIN_SRC sh
 git add .travis.yaml
 git commit -m "Travis CI configuration is added"
 git push -u origin master
-#+END_EXAMPLE
+#+END_SRC
 
 After a while Travis CI should recognise that there was a recent push to the
 repository and it should start to build your site with Hugo and deploy it afterwards.
